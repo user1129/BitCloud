@@ -1,9 +1,9 @@
 // LogoWrapperComponent.js
 
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MenuIcon } from "../common/SvgIcons";
-import { Link } from "react-router-dom";
 
 /**
  * LogoWrapperComponent displays the logo and menu icon.
@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
  * @param {string} props.userName - User name to determine whether to show the menu icon.
  * @returns {JSX.Element} - LogoWrapperComponent.
  */
+// eslint-disable-next-line react/prop-types
 const LogoWrapperComponent = ({ onClick, userName }) => {
   return (
     <LogoWrapper>
@@ -20,8 +21,8 @@ const LogoWrapperComponent = ({ onClick, userName }) => {
       </div>
       <Link to={"/home"}>
         <Logo>
-          <img src="./google-logo.png" alt="" />
-          <span>Drive</span>
+          
+          <span style={{fontFamily:"Nunito"}}>BitCloud</span>
         </Logo>
       </Link>
     </LogoWrapper>

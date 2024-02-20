@@ -30,7 +30,8 @@ const FileUploadModal = ({ open, setOpen, handleUpload, uploading, handleFile })
               </UploadingPara>
             ) : (
               <>
-                <input type="file" className="modal__file" onChange={handleFile} />
+               
+                <input id="files" type="file" className="modal__file" onChange={handleFile} />
                 <input type="submit" className="modal__submit" />
               </>
             )}

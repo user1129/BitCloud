@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // ProfileSection.js
 
 import React from "react";

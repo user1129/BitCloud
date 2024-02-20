@@ -1,33 +1,28 @@
+/* eslint-disable no-unused-vars */
 // Importing necessary libraries and components
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import {
-  MobileScreenShareIcon,
-  QueryBuilderIcon,
-  StarBorderIcon,
-  DeleteOutlineIcon,
-  CloudQueueIcons,
-  HelpIcon,
-  GitIcon,
-  FacebookIcon,
-  InstaIcon,
-  LinkedIcon,
-} from "../common/SvgIcons";
+import { MonetizationOn } from "@mui/icons-material";
 import { Modal } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { getFilesForUser } from "../common/firebaseApi";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
+
 import { auth } from "../../firebase";
 import { changeBytes } from "../common/common";
+import { getFilesForUser } from "../common/firebaseApi";
+import { CloudQueueIcons, DeleteOutlineIcon, MobileScreenShareIcon, QueryBuilderIcon, StarBorderIcon } from "../common/SvgIcons";
+
+// import "./Sidebar.css";
 
 // SidebarTabs component
 const SidebarTabs = () => {
   // State variables
+
   const [openHelp, setOpenModal] = useState(false);
   const [files, setFiles] = useState([]);
   const [storage, setStorage] = useState("");
   const [size, setSize] = useState("");
   const [openStorageModal, setOpenStorageModal] = useState(false);
-
+  
   // Fetch user files on component mount
   useEffect(() => {
     const fetchData = async () => {
@@ -60,55 +55,6 @@ const SidebarTabs = () => {
   return (
     <>
       {/* Help Modal */}
-      <Modal open={openHelp} onClose={() => setOpenModal(false)}>
-        <ModalPopup>
-          <ModalHeading>
-            <h3>Need Help?</h3>
-          </ModalHeading>
-          <ModalBody>
-            <div className="image">
-              <img src="/myimg.png" alt="" />
-            </div>
-            <h2>Mayank Gupta</h2>
-            <h4>Full Stack Web Developer</h4>
-            <p>Contact Me:</p>
-            <div className="links">
-              <a
-                href="https://github.com/Mayankkatheriya"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GitIcon />
-                Github
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mayank-gupta-752328173/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedIcon />
-                LinkedIn
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstaIcon />
-                Instagram
-              </a>
-              <a
-                href="https://www.facebook.com/mayakkatheriya/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FacebookIcon />
-                Facebook
-              </a>
-            </div>
-          </ModalBody>
-        </ModalPopup>
-      </Modal>
 
       {/* Sidebar options */}
       <SidebarOptions>
@@ -167,12 +113,20 @@ const SidebarTabs = () => {
 
         {/* Help option */}
         <hr />
-        <SidebarOption title="Help" onClick={() => setOpenModal(true)}>
+        {/* <SidebarOption title="Help" onClick={() => setOpenModal(true)}>
           <HelpIcon />
           <span>Help</span>
-        </SidebarOption>
+        </SidebarOption> */}
 
         {/* Storage option */}
+
+       <Link to='/subscription'>
+       <SidebarOption>
+          <MonetizationOn />
+          <span>Subscription</span>
+        </SidebarOption>
+       </Link>
+
         <SidebarOption
           title={`${storage} of 5 GB used`}
           onClick={() => setOpenStorageModal(true)}

@@ -1,16 +1,17 @@
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // Sidebar.js
 
 import React, { useState } from "react";
-import styled from "styled-components";
-import { db, storage, auth } from "../../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSelector } from "react-redux";
-import { selectSidebarBool } from "../../store/BoolSlice";
-import FileUploadModal from "./FileUploadModal";
-import AddFile from "./AddFile";
-import SidebarTabs from "./SidebarTabs";
 import { toast } from "react-toastify";
+import styled from "styled-components";
+
+import { auth, db, storage } from "../../firebase";
+import { selectSidebarBool } from "../../store/BoolSlice";
+import AddFile from "./AddFile";
+import FileUploadModal from "./FileUploadModal";
+import SidebarTabs from "./SidebarTabs";
 
 /**
  * Sidebar component for managing file uploads and displaying tabs.

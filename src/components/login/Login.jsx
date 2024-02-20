@@ -1,11 +1,10 @@
+import { signInWithPopup } from "firebase/auth";
 // Login.js
 
-import React from "react";
-import styled from "styled-components";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { auth, provider } from "../../firebase";
-import { signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
+
+import { auth, provider } from "../../firebase";
 import { setUserLoginDetails } from "../../store/UserSlice";
 
 /**
@@ -46,23 +45,37 @@ const Login = () => {
   return (
     <Container>
       <Box>
-        <img src="drive.svg" alt="Google Drive Logo" />
-        <h3>Google Drive</h3>
+        {/* <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fw7.pngwing.com%2Fpngs%2F591%2F671%2Fpng-transparent-cloud-computing-logo-dedicated-hosting-service-clouds-blue-cloud-service.png&tbnid=RYabd8QXZtF9NM&vet=12ahUKEwjuqbuYo7iEAxWFKRAIHeEkDFEQMygkegUIARCoAQ..i&imgrefurl=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dcloud%2BLogo&docid=WvslsgYWOqRC-M&w=920&h=614&q=cloud%20logo&ved=2ahUKEwjuqbuYo7iEAxWFKRAIHeEkDFEQMygkegUIARCoAQ" /> */}
+        <svg
+          height="100px"
+          version="1.1"
+          viewBox="0 0 32 32"
+          width="100px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title />
+          <desc />
+          <defs />
+          <g
+            fill="none"
+            id="Page-1"
+            stroke="none"
+            strokeWidth="3"
+          >
+            <g fill="#157EFB" id="icon-132-cloud">
+              <path
+                d="M26.8828633,15.3655101 C28.7132907,16.1085075 30,17.9035809 30,20 C30,22.7558048 27.7616745,25 25.0005601,25 L7.99943992,25 C5.23249418,25 3,22.7614237 3,20 C3,17.9491311 4.23965876,16.1816085 6.01189661,15.4115388 L6.01189661,15.4115388 C6.00400207,15.275367 6,15.1381509 6,15 C6,11.1340066 9.13400656,8 13,8 C15.6127573,8 17.8911816,9.43144875 19.0938083,11.5528817 C19.8206159,11.1987158 20.6371017,11 21.5,11 C24.1486546,11 26.3600217,12.8722494 26.8828633,15.3655101 Z"
+                id="cloud"
+              />
+            </g>
+          </g>
+        </svg>
+        <h3>BitCloud</h3>
         <Button onClick={handleAuth}>Get Started</Button>
         <div className="text">
           <p>
             A cloud-based storage service that enables users to store and access
             files online
-          </p>
-          <p>
-            Developed with <FavoriteIcon /> by{" "}
-            <a
-              href="https://www.linkedin.com/in/mayank-gupta-752328173/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mayank Gupta
-            </a>{" "}
           </p>
         </div>
       </Box>
